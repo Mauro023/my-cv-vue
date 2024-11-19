@@ -1,30 +1,67 @@
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
-</script>
-
 <template>
   <div>
-    <a href="https://vite.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
+    <div class="container">
+      <div class="content">
+        <Header />
+        <v-app>
+          <v-row justify="center">
+            <v-col cols="12" sm="11" md="11" lg="11" class="mt-6">
+              <v-card>
+                <Experience />
+                <Projects />
+              </v-card>
+            </v-col>
+          </v-row>
+        </v-app>
+      </div>
+    </div>
   </div>
-  <HelloWorld msg="Vite + Vue" />
+  <!-- <HelloWorld msg="Vite + Vue" /> -->
 </template>
 
+<script>
+import Header from '@/components/Header.vue';
+import Experience from '@/components/Experience.vue';
+import Projects from '@/components/Projects.vue';
+
+export default {
+  components: {
+    Header,
+    Experience,
+    Projects
+  },
+};
+</script>
+
 <style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+.container {
+  width: 130vh;
+  min-height: 170vh;
+  background: linear-gradient(to bottom,
+      #3498db 0%,
+      #3498db 50%,
+      #fff 50%,
+      #fff 100%);
+  color: black;
+  border-radius: 2%;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+
+.content{
+  align-content: center;
 }
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
+</style>
+
+<style>
+.v-application {
+  background-color: transparent !important;
+  min-height: fit-content !important;
+}
+
+.v-application__wrap {
+  min-height: fit-content !important;
+}
+
+.container {
+  background-color: white;
 }
 </style>
