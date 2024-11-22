@@ -38,12 +38,12 @@ export default {
   width: 130vh;
   min-height: 170vh;
   background: linear-gradient(to bottom,
-      #3498db 0%,
-      #3498db 50%,
+      #4527A0 0%,
+      #4527A0 50%,
       #fff 50%,
       #fff 100%);
   color: black;
-  border-radius: 2%;
+  border-radius: 12px;
 }
 
 .content{

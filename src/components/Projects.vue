@@ -8,19 +8,16 @@
                         <v-divider class="ml-1 border-opacity-25"></v-divider>
                     </div>
                 </v-card-title>
-                <div v-for="(experience, index) in experienceItems" :key="experience.company">
+                <div v-for="(project, index) in projectsItems" :key="project.company">
                     <div class="d-flex flex-no-wrap justify-space-between">
                         <div v-if="index % 2 == 0" class="timeline-section align-center">
                             <div class="line-start"></div>
                         </div>
                         <div>
-                            <v-card-title class="custom-title">{{ experience.company }}</v-card-title>
-                            <v-card-subtitle>{{ experience.job }} | {{ experience.location
-                                }}</v-card-subtitle>
-
+                            <v-card-title class="custom-title">{{ project.company }}</v-card-title>
                             <v-card-text>
                                 <p class="custom-p">
-                                    {{ experience.descriptionJob }}
+                                    {{ project.descriptionJob }}
 
                                 </p>
                             </v-card-text>
@@ -37,13 +34,13 @@
 
 <script>
 
-import { experienceItems } from '@/datajs/projectsData.js'
+import { projectsItems } from '@/datajs/projectsData.js'
 
 export default {
     name: 'Projects',
     data() {
         return {
-            experienceItems: experienceItems
+            projectsItems: projectsItems
         }
     }
 };
@@ -60,9 +57,9 @@ export default {
 
 .line-start {
     position: absolute;
-    width: 2px;
+    width: 3px;
     margin-left: 20px;
-    background-color: #74A4D9;
+    background-color: #4527A0;
     height: 80%;
     margin-top: 8px;
 }
@@ -74,10 +71,10 @@ export default {
 
 .line-end {
     position: absolute;
-    width: 2px;
+    width: 3px;
     margin-right: 20px;
     padding-left: 0px;
-    background-color: #74A4D9;
+    background-color: #4527A0;
     height: 80%;
     margin-top: 8px;
 }

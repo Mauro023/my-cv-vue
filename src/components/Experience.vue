@@ -12,7 +12,7 @@
                     <div class="d-flex flex-no-wrap justify-space-between">
                         <div class="timeline-section align-center">
                             <v-card-subtitle>
-                                <v-chip color="primary" variant="flat">
+                                <v-chip color="deep-purple-darken-3" variant="flat">
                                     {{ experience.startPeriod }} - {{ experience.endPeriod }}
                                 </v-chip>
                             </v-card-subtitle>
@@ -31,6 +31,18 @@
                                     {{ experience.descriptionJob }}
 
                                 </p>
+                                <br>
+                                Tecnologias utilizadas:
+                                <span class="custom-p" v-for="(technology, index) in experience.technology"
+                                    :key="technology">
+                                    <v-tooltip :text="technology">
+                                        <template v-slot:activator="{ props }">
+                                            <img :src=" getTechnologyIcon(technology)" v-bind="props" class="icon ml-2" :width="24"
+                                                :height="24" />
+                                        </template>
+                                    </v-tooltip>
+                                    {{ getPunctuation(index, experience.technology) }}
+                                </span>
                             </v-card-text>
                         </div>
                     </div>
@@ -41,16 +53,30 @@
 </template>
 
 <script>
+
+import { experienceItems } from '@/datajs/experienceData.js'
+
 export default {
     name: 'Experience',
     data() {
         return {
-            experienceItems: [
-                { startPeriod: 2021, endPeriod: 2023, company: 'Fundación un mundo igual', job: 'Coordinador de soporte informatico', descriptionJob: 'Soy un apasionado de la informática y un desarrollador Fullstack con experiencia, siempre buscando aprender más y ampliar mis conocimientos en el', location: 'Montería, Colombia' },
-                { startPeriod: 2023, endPeriod: 2024, company: 'Clinica CUMI', job: 'Ingeniero de soporte', descriptionJob: 'Soy un apasionado de la informática y un desarrollador Fullstack con experiencia, siempre buscando aprender más y ampliar mis conocimientos en el', location: 'Montería, Colombia' },
-            ],
+            experienceItems: experienceItems,
         }
-    }
+    },
+    methods: {
+        getPunctuation(index, array) {
+            return index === array.length - 1 ? ' ' : ' / ';
+        },
+        getTechnologyIcon(technology) {
+            const technologyLower = technology.replace(/\s+/g, '').toLowerCase();
+            try {
+                return new URL(`../assets/icons/${technologyLower}/${technologyLower}-original.svg`, import.meta.url).href
+            } catch (error) {
+                console.warn(`No se encontró ícono para: ${technology}`);
+                return null;
+            }
+        }
+    },
 };
 </script>
 
@@ -68,8 +94,8 @@ export default {
     left: 50%;
     transform: translateX(-50%);
     width: 2px;
-    background-color: #74A4D9;
-    height: 60%;
+    background-color: #4527A0;
+    height: 72%;
     margin-top: 8px;
 }
 
@@ -82,7 +108,7 @@ export default {
     position: absolute;
     width: 8px;
     height: 8px;
-    background-color: #74A4D9;
+    background-color: #4527A0;
     border-radius: 50%;
     left: 50%;
     transform: translateX(-50%);

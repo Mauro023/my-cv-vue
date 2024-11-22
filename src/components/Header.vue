@@ -10,7 +10,7 @@
                                     <strong>¡Hola! yo soy <br>Mauricio Camargo</strong>
                                 </v-card-title>
                                 <v-card-subtitle>
-                                    <v-chip color="primary" variant="flat">
+                                    <v-chip color="deep-purple-darken-3" variant="flat">
                                         Desarrollador ∼ Ingeniero de sistemas
                                     </v-chip>
                                 </v-card-subtitle>
@@ -106,38 +106,17 @@
 </template>
 
 <script>
+
+import { contactItems, tecnologyItems, languagesItems, bdItems } from '@/datajs/headerData.js'
+
 export default {
     name: 'Header',
     data() {
         return {
-            contactItems: [
-                { icon: 'mdi-gmail', text: 'Cambuend@gmail.com', link: 'mailto:ejemplo@email.com', color: '#E34C41' },
-                { icon: 'mdi-linkedin', text: 'Mauricio-camargo', link: 'https://linkedin.com/in/tu-perfil', color: '#007AB9' },
-                { icon: 'mdi-github', text: 'Mauro023', link: 'https://github.com/tu-usuario', color: '#000000' },
-                { icon: 'mdi-phone', text: '+57 3053357388', link: null, color: '#2DD46C' },
-                { icon: 'mdi-map-marker', text: 'Montería, Colombia', link: null, color: '#E60808' },
-            ],
-
-            tecnologyItems: [
-                { icon: new URL('@/assets/icons/laravel/laravel-original.svg', import.meta.url).href, text: 'Laravel'},
-                { icon: new URL('@/assets/icons/vuejs/vuejs-original.svg', import.meta.url).href, text: 'Vue.js'},
-                { icon: new URL('@/assets/icons/flutter/flutter-original.svg', import.meta.url).href, text: 'Flutter'},
-            ],
-
-            languagesItems: [
-                { icon: new URL('@/assets/icons/php/php-original.svg', import.meta.url).href, text: 'PHP' },
-                { icon: new URL('@/assets/icons/javascript/javascript-original.svg', import.meta.url).href, text: 'JavaScript'},
-                { icon: new URL('@/assets/icons/python/python-original.svg', import.meta.url).href, text: 'Python'},
-                { icon: new URL('@/assets/icons/java/java-original.svg', import.meta.url).href, text: 'Java'},
-                { icon: new URL('@/assets/icons/cplusplus/cplusplus-original.svg', import.meta.url).href, text: 'C++'},
-                { icon: new URL('@/assets/icons/visualbasic/visualbasic-original.svg', import.meta.url).href, text: 'Visual Basic for aplication'},
-                { icon: new URL('@/assets/icons/dart/dart-original.svg', import.meta.url).href, text: 'Dart'}
-            ],
-
-            bdItems: [
-                { icon: new URL('@/assets/icons/mysql/mysql-original.svg', import.meta.url).href, text: 'MySQL'},
-                { icon: new URL('@/assets/icons/microsoftsqlserver/microsoftsqlserver-original.svg', import.meta.url).href, text: 'Microsfot SQLServer'},
-            ],
+            contactItems: contactItems,
+            tecnologyItems: tecnologyItems,
+            languagesItems: languagesItems,
+            bdItems: bdItems,
         }
     },
     methods: {
